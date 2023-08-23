@@ -39,7 +39,7 @@ fn main() {
     }
 
     println!("Result -- \n ",  );
-    for i in arr {
+    for i in arr2 {
         println!(" {}", i );
     }
     
