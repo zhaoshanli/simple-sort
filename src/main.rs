@@ -30,16 +30,16 @@ fn main() {
     println!(" >>>>>>>>Integer sort END\n\n" );
 
     //换成浮点数组
-    let mut arr2 = [ 1.0 , 21.0 , 2099.1 , 9.4 , 10.2 , 100.1 , 2.0 , 45.3 , 300.1 , 203.0 ];
+    let mut arr = [ 1.0 , 21.0 , 2099.1 , 9.4 , 10.2 , 100.1 , 2.0 , 45.3 , 300.1 , 203.0 ];
 
-    let size = arr2.len();
+    let size = arr.len();
 
     for i in 0 .. size - 1 {
-        pop_max( &mut arr2[ i.. size ] );
+        pop_max( &mut arr[ i.. size ] );
     }
 
     println!("Result -- \n ",  );
-    for i in arr2 {
+    for i in arr {
         println!(" {}", i );
     }
     
