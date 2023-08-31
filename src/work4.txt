@@ -1,0 +1,73 @@
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  作业1
+enum Signal{
+    Blue,
+    Red,
+    Yellow
+}
+
+trait Trafficlight{
+    fn get_signal () ->Signal;
+}
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  作业2
+//计算 总和, 溢出返回 None
+fn calc_total( array: &[u32 ] ) -> Option<u32> {
+    let mut total : u32 = 0 ;
+    for i in 0 .. array.len() {
+        match total.checked_add(array[i]){
+            Some(v) => {
+                println!("total now : {} ",v );
+                total= v;
+            }
+            None => {
+                return None;
+            }
+        }
+    }
+
+    Some(total)
+}
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 作业3
+//定义一个 计算面积的 trait
+trait Area{
+    fn get_area (&self) ->f64;
+}
+
+//定义一个 结构体： 圆型
+struct Round{
+    radius: f64
+}
+
+//定义一个 结构体： 正方形
+struct Square{
+    side: f64
+}
+
+//实现圆形的计算面积方法
+impl Area for Round{
+    fn get_area(&self) ->f64{
+        return self.radius * self.radius * 3.14;
+    }
+}
+
+//实现正方形的计算面积方法
+impl Area for Square{
+    fn get_area(&self) ->f64{
+        return self.side * self.side;
+    }
+}
+
+//使用泛型打印面积
+fn print_area<T:Area> (shape: &T){
+    let  area= shape.get_area();
+    println!("area is: {}" ,area );
+}
+
+
+fn main() {
+    let round1 = Round{ radius:2.0 };
+    let square1 = Square{ side:4.0 };
+    print_area( &round1 );
+    print_area( &square1 );
+}
